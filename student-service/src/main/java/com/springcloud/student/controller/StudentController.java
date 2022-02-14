@@ -8,10 +8,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springcloud.student.modal.Student;
+import com.springcloud.student.conversion.StudentRequest;
+import com.springcloud.student.conversion.StudentResponse;
+import com.springcloud.student.model.Student;
 import com.springcloud.student.service.StudentService;
 
 /**
@@ -19,40 +24,27 @@ import com.springcloud.student.service.StudentService;
  *
  */
 @RestController
-@RequestMapping("/student-service")
+@RequestMapping("/api/student-service")
 public class StudentController {
 
 	
 	@Autowired
 	private StudentService studentService;
 	
+	@PostMapping("/students") 
+	public StudentResponse createStudent(@RequestBody StudentRequest studentRequest){ 
+		return studentService.createStudent(studentRequest);
+	  }
+	
+	@GetMapping("/students/{stdId}") 
+	public StudentResponse getStudentById(@PathVariable("stdId") int stdId) { 
+		return studentService.getStudentById(stdId); 
+		}
+	
+	
 	// getStudents
 	@GetMapping("/students")
 	public List<Student> getStudents() {
 		return studentService.getStudents();
-	}
-	/*
-	 * // getStudentById
-	 * 
-	 * @GetMapping("/students/{stdId}") public List<Student>
-	 * getStudentById(@PathVariable("stdId") int stdId) { return
-	 * studentRepo.getStudentById(stdId); } // getStudentByName
-	 * 
-	 * // createStudent
-	 * 
-	 * @PostMapping("/students") public Student create(@RequestBody Student student)
-	 * { return studentRepo.saveStudent(student);
-	 * 
-	 * }
-	 * 
-	 * //getStudentById
-	 * 
-	 * @DeleteMapping("/students/{stdId}") public boolean
-	 * deleteStudent(@PathVariable("stdId") int stdId) { return
-	 * studentRepo.deleteStudentById(stdId); }
-	 */
-	
-	
-	
-	
+	}	
 }

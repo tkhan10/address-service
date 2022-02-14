@@ -1,12 +1,12 @@
 /**
  * 
  */
-package com.springcloud.student.repo;
+package com.springcloud.student.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.springcloud.student.modal.Student;
+import com.springcloud.student.model.Student;
 
 /**
  * @author tofekkhan

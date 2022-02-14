@@ -3,7 +3,7 @@
  */
 package com.springcloud.student.conversion;
 
-import com.springcloud.student.modal.Address;
+import com.springcloud.student.model.Student;
 
 /**
  * @author tofekkhan
@@ -14,19 +14,13 @@ public class StudentResponse {
 	private int id;
 	private String studentName;
 	private String className;
-	private Address address;
-	/**
-	 * @param id
-	 * @param studentName
-	 * @param className
-	 * @param address
-	 */
-	public StudentResponse(int id, String studentName, String className, Address address) {
-		super();
-		this.id = id;
-		this.studentName = studentName;
-		this.className = className;
-		this.address = address;
+	private AddressResponse addressResponse;
+	
+	public StudentResponse(Student student) {
+		this.id = student.getId();
+		this.studentName = student.getStudentName();
+		this.className = student.getClassName();
+		//this.address = address;
 	}
 	/**
 	 * @return the id
@@ -65,17 +59,18 @@ public class StudentResponse {
 		this.className = className;
 	}
 	/**
-	 * @return the address
+	 * @return the addressResponse
 	 */
-	public Address getAddress() {
-		return address;
+	public AddressResponse getAddressResponse() {
+		return addressResponse;
 	}
 	/**
-	 * @param address the address to set
+	 * @param addressResponse the addressResponse to set
 	 */
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddressResponse(AddressResponse addressResponse) {
+		this.addressResponse = addressResponse;
 	}
+	
 	
 	
 }

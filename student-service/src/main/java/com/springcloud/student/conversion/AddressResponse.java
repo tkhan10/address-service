@@ -1,19 +1,20 @@
 /**
  * 
  */
-package com.springcloud.address.transfer;
+package com.springcloud.student.conversion;
 
 
 /**
  * @author tofekkhan
  *
  */
-public class AddressRequest {
+public class AddressResponse {
+	
 	private long addressId;
 	private String pin;
 	private String street;
 	
-
+	
 	/**
 	 * @return the addressId
 	 */
@@ -50,6 +51,7 @@ public class AddressRequest {
 	public void setStreet(String street) {
 		this.street = street;
 	}
+	
 	
 
 }
