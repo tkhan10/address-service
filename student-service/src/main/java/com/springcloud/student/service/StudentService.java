@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.springcloud.student.model.Student;
-import com.springcloud.student.openfeign.AddressFeignClient;
+import com.springcloud.student.openfeign.SpringCloudFeignClient;
 import com.springcloud.student.repository.StudentRepository;
 
 import reactor.core.publisher.Mono;
@@ -31,7 +31,7 @@ public class StudentService {
 	WebClient webClient;
 	
 	@Autowired
-	AddressFeignClient addressFeignClient;
+	SpringCloudFeignClient addressFeignClient;
 	
 	public List<Student> getStudents() {
 		//webClient.get().uri(null)

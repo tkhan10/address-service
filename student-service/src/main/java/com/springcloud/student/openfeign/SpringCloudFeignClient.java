@@ -14,10 +14,10 @@ import com.springcloud.student.conversion.AddressResponse;
  * @author tofekkhan
  *
  */
-@FeignClient(value = "address-service", path="/api/address-service")
-public interface AddressFeignClient {
+@FeignClient(value = "api-gateway")
+public interface SpringCloudFeignClient {
 	
-	@GetMapping("/addresses/{id}")
+	@GetMapping("/address-service/api/address-service/addresses/{id}")
 	public AddressResponse getAddressById(@PathVariable("id") int id);
 
 
