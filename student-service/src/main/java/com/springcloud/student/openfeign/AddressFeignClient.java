@@ -14,7 +14,7 @@ import com.springcloud.student.conversion.AddressResponse;
  * @author tofekkhan
  *
  */
-@FeignClient(url="${address.service.url}", value = "address-feigh-client", path="/api/address-service")
+@FeignClient(value = "address-service", path="/api/address-service")
 public interface AddressFeignClient {
 	
 	@GetMapping("/addresses/{id}")

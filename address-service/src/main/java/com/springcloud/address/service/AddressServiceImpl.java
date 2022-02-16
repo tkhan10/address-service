@@ -5,6 +5,8 @@ package com.springcloud.address.service;
 
 import java.util.List;
 
+import org.apache.logging.log4j.Logger;
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,7 @@ import com.springcloud.address.transfer.AddressResponse;
  */
 @Service
 public class AddressServiceImpl {
+	//Logger logger = LoggerFactory.  (AddressServiceImpl.class);
 	
 	@Autowired
 	AddressRepository addressRepository;
@@ -38,6 +41,7 @@ public class AddressServiceImpl {
 	}
 
 	public AddressResponse getAddresses(int id) {
+		System.out.println("Inside getAddress 1");
 		Address address = addressRepository.findById(id).get();
 		return new AddressResponse(address);
 	}
